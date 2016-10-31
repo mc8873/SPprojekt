@@ -7,8 +7,15 @@
 	min-width: 1100px;
 }
 
+.col-1-5 {
+	width: 200px;
+	height: 100%;
+	background-color: white;
+	box-shadow: 2px 0px 5px #888888;
+}
+
 .col-4-5 {
-	width: 80%;
+	width: calc(100% - 200px);
 	height: 100%;
 	background-color: white;
 }
@@ -20,13 +27,6 @@
     .col-0 {
 	width: calc(100% - 280px);
 	}
-}
-
-.col-1-5 {
-	width: 20%;
-	height: 100%;
-	background-color: white;
-	box-shadow: 0px 0px 5px;
 }
 
 .col-0-1-5 {
@@ -54,7 +54,7 @@
     background-color: #000;
     border: none;
     color: white;
-    padding: 15px 10px;
+    padding: 13.5px 10px;
     text-decoration: none;
   	font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
@@ -79,9 +79,13 @@ input[type=text] {
     background-position: 10px 7px;
     background-repeat: no-repeat;
     padding: 5px 20px 5px 40px;
-    margin: 7px;
+    margin-top: 7px;
+
 }
 
+form {
+	margin: 0;
+}
 body {
     margin: 0;
 
