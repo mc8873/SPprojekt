@@ -1,31 +1,66 @@
 <html>
 <link rel="stylesheet" type="text/css" href="landing.css">
 <link rel="icon" href="icons/favicon2.png">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+<script src="landing.js"></script>
 <title>Radovednez</title>
 	<body>
 		<header>
 		<div class="headerBackground">
 		<div class="centrirano">
-			<div class="logo"><a href="#"><img src="icons/logo2.png" alt="logo"/></a></div>
+			<div class="logo"><a href=""><img src="icons/logo2.png" alt="logo"/></a></div>
 			<form>
   				<input type="text" name="iskalnik" placeholder="Isci...">
 			</form>
 			<a href="login.html" class="gumb">vpis</a>
-			<a href="#" class="gumb">registracija</a>
+			<a href="registration.html" class="gumb">registracija</a>
 		</div>
 		</div>
 		</header>
 		<div class ="main">
-		<section>
-			<article>
-				<h2> Test </h2>
-				<p> To je test, dober test, najbolsi test. Ni ga boljsega testa kot je ta test.</p>
-			</article>
-			<article>
-				<h2> Prava stvar </h2>
-				<p> To ni vec test. Zdej gre pa ze zares. Ne se hecat ejga.</p>
-			</article>
-		</section>
+		
+			<ul class="tab">
+				<p> Razvrsti vpršanja </p>
+			  <li><a href="javascript:void(0)" class="tabs" onclick="openCity(event, 'vsehcasov')">vseh časov</a></li>
+			  <li><a href="javascript:void(0)" class="tabs" onclick="openCity(event, 'meseca')">meseca</a></li>
+			  <li><a href="javascript:void(0)" class="tabs" onclick="openCity(event, 'tedna')">tedna</a></li>
+			  <li><a href="javascript:void(0)" class="tabs" onclick="openCity(event, 'trenutno')" id="prviTab"> top trenutno</a></li>
+			  <li><a href="javascript:void(0)" class="tabs" onclick="openCity(event, 'novo')">novo</a></li>
+			</ul>
+			<div id="trenutno" class="vsebinaTab">
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Kako si zavezati čevlje? </h2>
+									<p> Zanima me kako naj si zavežem čevlje. Sem se že trudil, ampak vedno ko začnem samo strmim v vezalke in nevem kaj naprej. Mi lahko kdo pomaga?</p>
+								</article>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Zakaj se zemlja vrti?</h2>
+									<p> Zanima me zakaj se zemlja vrti. Mar nebi bilo bolje, če bi bil zmeraj dan? </p>
+								</article>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

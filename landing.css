@@ -4,12 +4,14 @@
 
 header {
 	background: black;
+    height: 50px;
 }
 
 .headerBackground {
 	height: 50px;
 	width: 100%;
 	background: black;
+    overflow: hidden;
 }
 
 .centrirano {
@@ -28,7 +30,7 @@ header {
     background-color: #000;
     border: none;
     color: white;
-    padding: 13.5px 10px;
+    padding: 1.4% 1%;
     text-decoration: none;
   	font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
@@ -38,7 +40,7 @@ header {
 }
 
 .gumb:hover {
-    background-color: #696969; /* :D */
+    background-color: #3399ff;
     color: white;
 }
 
@@ -65,6 +67,7 @@ form {
 body {
 	background: #F0F0F0; 
     margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .sidebarText {
@@ -82,6 +85,58 @@ body {
 	clear: both;
 }
 
+ul.tab {
+    list-style-type: none;
+    margin-top: 10px;
+    padding-top: 0;
+    overflow: hidden;
+    border: 1px solid #C8C8C8;
+    background-color: white;
+}
+
+ul.tab li {
+    float: right;
+}
+
+ul.tab p {
+    float: left;
+}
+
+ul.tab li a {
+    display: inline-block;
+    color: black;
+    text-align: center;
+    padding: 15px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+ul.tab li a:hover {
+    background-color: #C8C8C8;
+
+}
+
+ul.tab li a:focus, .active {
+    background-color: #A8A8A8;
+    color: white;
+}
+
+.vsebinaTab {
+    background-color: white;
+    border: 1px solid #C8C8C8;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 2%;
+}
+
+.vprasanje {
+    border-bottom: 1px solid #C8C8C8;
+}
+
+.voteimg {
+    display:block;
+}
+
 h1 {
     color: white;
     font-family: "Arial Black", "Arial Bold", Gadget, sans-serif;
@@ -92,4 +147,10 @@ h1 {
 
 article {
 	background: white;
+    padding-left: 1%;
+}
+
+table {
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
