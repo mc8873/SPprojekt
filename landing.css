@@ -44,6 +44,20 @@ header {
     color: white;
 }
 
+.temaTag {
+    background-color: #3399ff;
+    border: none;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.3% 0.8%;
+    border-radius: 3px;
+}
+
+.temaTag:hover {
+    background-color: #33aaff;
+}
+
 input[type=text] {
 	outline-width: 0;
 	border: 2px solid #000;
@@ -83,6 +97,10 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 	clear: both;
+}
+
+p.bold {
+    font-weight: bold;
 }
 
 ul.tab {
@@ -135,6 +153,13 @@ ul.tab li a:focus, .active {
 
 .voteimg {
     display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.votecell {
+    text-align: center;
+
 }
 
 h1 {
