@@ -19,13 +19,18 @@ function odpritab() {
 
 function dodajOdgovor(){
     var vsebina = document.getElementById("odgovorBoks").value;
-    document.getElementById("odgovoriContainer").innerHTML +="<table><tr><td class='votecell'><img class = 'voteimg' src='icons/like.svg' alt='like'/><span>1</span><img class = 'voteimg' src='icons/dislike.svg' alt='like'/></td><td class='questcell'><p>"+ vsebina+"</p><p>--- anon</p></td></tr><tr><td></td><td><a href='javascript:void(0)' class='odgovorLink' onclick='komentiraj(event)'>komentiraj</a>  <a class='odgovorLink'> označi za neprimerno</a></td></tr></table>";
+    document.getElementById("odgovoriContainer").innerHTML +="<table><tr><td class='votecell'><img class = 'voteimg' src='icons/like.svg' alt='like'/><span>1</span><img class = 'voteimg' src='icons/dislike.svg' alt='like'/></td><td class='questcell'><p>"+ vsebina+"</p><p>--- anon</p></td></tr><tr><td></td><td><a href='javascript:void(0)' class='odgovorLink' onclick='komentiraj(event)'>komentiraj</a>  <a class='odgovorLink'> označi za neprimerno</a> <a href='javascript:void(0)' class='odgovorLink' onclick='oznaciOdgovor(event)'>označi za dober odgovor</a></td></tr></table>";
 
 }
 
 function komentiraj(event){
     modal.style.display = "block";
     tabela = event.currentTarget.parentNode.parentNode.parentNode;
+}
+
+function oznaciOdgovor(event){
+    event.currentTarget.innerHTML = "dober odgovor";
+    event.currentTarget.style.color = "#00FF00";
 }
 
 function dodajKomentar(){
