@@ -213,24 +213,6 @@ table {
     padding-bottom: 1%;
 }
 
-@media only screen and (min-device-width: 480px) {
-    .modalvsebina {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 50%;
-    min-width: 680px;
-    }
-
-    .main {
-    width:960px;
-    min-height:2200px;
-    margin-left: auto;
-    margin-right: auto;
-    clear: both;
-    }
-}
 
 .vprasanjeContainer, .odgovoriContainer {
     margin-top: 1%;
