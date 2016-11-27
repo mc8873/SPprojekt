@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="landing.css">
 <link rel="icon" href="icons/favicon2.png">
@@ -9,23 +10,22 @@
 		<div class="centrirano">
 			<div class="logo"><a href=""><img src="icons/logo2.png" alt="logo"/></a></div>
 			<form>
-  				<input type="text" name="iskalnik" placeholder="Isci...">
+  				<input class="iskalnik" type="text" name="iskalnik" placeholder="Isci...">
 			</form>
-			<a href="vprasanje.html" class="gumb">vprašaj</a>
+			<a href="vprasaj.html" class="gumb">vprašaj</a>
 			<a href="login.html" class="gumb">vpis</a>
 			<a href="registration.html" class="gumb">registracija</a>
 		</div>
 		</div>
 		</header>
 		<div class ="main">
-		
 			<ul class="tab">
-				<p class = "bold"> Razvrsti vpršanja </p>
-			  <li><a href="javascript:void(0)" class="tabs" onclick="openCity(event, 'vsehcasov')">vseh časov</a></li>
-			  <li><a href="javascript:void(0)" class="tabs" onclick="openCity(event, 'meseca')">meseca</a></li>
-			  <li><a href="javascript:void(0)" class="tabs" onclick="openCity(event, 'tedna')">tedna</a></li>
-			  <li><a href="javascript:void(0)" class="tabs" onclick="openCity(event, 'trenutno')" id="prviTab"> top trenutno</a></li>
-			  <li><a href="javascript:void(0)" class="tabs" onclick="openCity(event, 'novo')">novo</a></li>
+			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'vsehcasov')">vseh časov</a></li>
+			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'meseca')">meseca</a></li>
+			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'tedna')">tedna</a></li>
+			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'trenutno')" id="prviTab"> top trenutno</a></li>
+			  	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'novo')">novo</a></li>
+			  	<li><p class = "bold"> Razvrsti vpršanja </p></li>
 			</ul>
 			<div id="trenutno" class="vsebinaTab">
 				<div class ="vprasanje">
@@ -38,7 +38,7 @@
 							</td>
 							<td class="questcell">
 								<article>
-									<h2> Kako si zavezati čevlje? </h2>
+									<h2> <a href="vprasanje.html">Kako si zavezati čevlje?</a> </h2>
 									<p> Zanima me kako naj si zavežem čevlje. Sem se že trudil, ampak vedno ko začnem samo strmim v vezalke in nevem kaj naprej. Mi lahko kdo pomaga?</p>
 								</article>
 							</td>
@@ -47,11 +47,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">čevljarstvo</a>
 									<a class="temaTag">splošno</a>
 									<a class="temaTag">tehnika</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -67,7 +67,7 @@
 							<td class="questcell">
 								<article>
 									<h2> Zakaj se zemlja vrti?</h2>
-									<p> Zanima me zakaj se zemlja vrti. Mar nebi bilo bolje, če bi bil zmeraj dan? </p>
+									<p> Zanima me zakaj se zemlja vrti. Mar nebi bilo bolje, če bi bil zmeraj dan?</p>
 								</article>
 							</td>
 						</tr>
@@ -75,11 +75,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">znanost</a>
 									<a class="temaTag">vesolje</a>
 									<a class="temaTag">planeti</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -103,9 +103,9 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">vrtnarstvo</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -129,11 +129,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">olive</a>
 									<a class="temaTag">vlaganje</a>
 									<a class="temaTag">kulinarika</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -159,11 +159,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">čevljarstvo</a>
 									<a class="temaTag">splošno</a>
 									<a class="temaTag">tehnika</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -187,11 +187,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">znanost</a>
 									<a class="temaTag">vesolje</a>
 									<a class="temaTag">planeti</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -215,9 +215,9 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">vrtnarstvo</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -241,11 +241,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">olive</a>
 									<a class="temaTag">vlaganje</a>
 									<a class="temaTag">kulinarika</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -271,11 +271,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">čevljarstvo</a>
 									<a class="temaTag">splošno</a>
 									<a class="temaTag">tehnika</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -299,11 +299,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">znanost</a>
 									<a class="temaTag">vesolje</a>
 									<a class="temaTag">planeti</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -327,9 +327,9 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">vrtnarstvo</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -353,11 +353,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">olive</a>
 									<a class="temaTag">vlaganje</a>
 									<a class="temaTag">kulinarika</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -383,11 +383,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">čevljarstvo</a>
 									<a class="temaTag">splošno</a>
 									<a class="temaTag">tehnika</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -412,11 +412,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">znanost</a>
 									<a class="temaTag">vesolje</a>
 									<a class="temaTag">planeti</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -440,9 +440,9 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">vrtnarstvo</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -466,11 +466,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">olive</a>
 									<a class="temaTag">vlaganje</a>
 									<a class="temaTag">kulinarika</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -496,11 +496,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">olive</a>
 									<a class="temaTag">vlaganje</a>
 									<a class="temaTag">kulinarika</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -524,9 +524,9 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">vrtnarstvo</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -550,11 +550,11 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">čevljarstvo</a>
 									<a class="temaTag">splošno</a>
 									<a class="temaTag">tehnika</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
@@ -578,17 +578,29 @@
 							<td>
 							</td>
 							<td>
-								<article>
+								<span>
 									<a class="temaTag">znanost</a>
 									<a class="temaTag">vesolje</a>
 									<a class="temaTag">planeti</a>
-								</article>
+								</span>
 							</td>
 						</tr>
 					</table>
 				</div>
 			</div>
 		</div>
-	</body>
+	<footer>
+	<div class="headerBackground">
+      <div class="centrirano">
+      	<div class="footerContent">
+        <a href="login.html">Prijava</a> | 
+        <a href="registration.html">Registracija</a> |
+        <a href="vprasaj.html">Vprašaj</a><br>
+        Avtor: Matevž Cesar
+        </div> 
+        </div>
+      </div>
+    </footer>
 	<script src="landing.js"></script>
+	</body>
 </html>

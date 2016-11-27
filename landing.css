@@ -7,6 +7,10 @@ header {
     height: 50px;
 }
 
+tr { 
+    padding: 1% 0 0 0; 
+}
+
 .headerBackground {
 	height: 50px;
 	width: 100%;
@@ -14,7 +18,7 @@ header {
     overflow: hidden;
 }
 
-.centrirano {
+.centrirano{
  	max-width:960px;
  	min-width: 960px;
  	margin-left:auto;
@@ -33,10 +37,26 @@ header {
     padding: 1.4% 1%;
     text-decoration: none;
   	font-family: Arial, Helvetica, sans-serif;
-    display: inline-block;
+    display: block;
     font-size: 20px;
     cursor: pointer;
     float: right;
+}
+
+
+
+.gumbOdgovori {
+    background-color: #3fbf4e;
+    border: none;
+    color: black;
+    padding: 0.5% 0.5%;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 1%;
+    display: block;
 }
 
 .gumb:hover {
@@ -58,7 +78,7 @@ header {
     background-color: #33aaff;
 }
 
-input[type=text] {
+.iskalnik {
 	outline-width: 0;
 	border: 2px solid #000;
     width: 45%;
@@ -72,6 +92,11 @@ input[type=text] {
     padding: 5px 20px 5px 40px;
     margin-top: 7px;
     float: left;
+}
+
+.novVnos{
+    width: 100%;
+    font-size: 20px;
 }
 
 form {
@@ -94,6 +119,7 @@ body {
 
 .main {
 	width:960px;
+    min-height:1000px;
 	margin-left: auto;
 	margin-right: auto;
 	clear: both;
@@ -112,15 +138,12 @@ ul.tab {
     background-color: white;
 }
 
-ul.tab li {
-    float: right;
-}
-
-ul.tab p {
+ul.tab li p {
     float: left;
 }
 
 ul.tab li a {
+    float: right;
     display: inline-block;
     color: black;
     text-align: center;
@@ -145,6 +168,12 @@ ul.tab li a:focus, .active {
     padding-left: 2%;
     padding-right: 2%;
     padding-bottom: 2%;
+    margin-bottom: 2%;
+}
+
+.footerContent a, .footerContent{
+    padding-top: 1%;
+    color: white;
 }
 
 .vprasanje {
@@ -160,6 +189,10 @@ ul.tab li a:focus, .active {
 .votecell {
     text-align: center;
 
+}
+
+.odgovorOdgovora {
+    padding-left: 2%;
 }
 
 h1 {
@@ -178,4 +211,55 @@ article {
 table {
     padding-top: 1%;
     padding-bottom: 1%;
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        font-size: 1.3em;
+    }
+}
+
+.vprasanjeContainer, .odgovoriContainer {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    border: 1px solid #C8C8C8;
+    background-color: white; 
+}
+
+.odgovoriContainer {
+    padding: 1%;
+    clear: both;
+}
+
+a.odgovorLink {
+    text-decoration: underline;
+    cursor: pointer;
+    color:black;
+}
+
+.modal {
+    display: none;
+    position: fixed; 
+    z-index: 1; 
+    padding-top: 10%; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: #000; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modalvsebina {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+.novVnosContainer {
+    margin:2%;
+    font-size: 24px;
 }

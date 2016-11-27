@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="login.css">
@@ -11,12 +12,14 @@
 			<a href="landing.html"><img class="logo" src="icons/loginLogo.png" alt="logo"/></a>
 			</div>
 			<div class="fieldcontainer">
-			    <input type="text" placeholder="Uporabnisko ime" name="uporabnisko" required>
-			    <input type="text" placeholder="E-pošta" name="email" required>
-			    <input type="password" placeholder="Geslo" name="geslo" required>
-			    <input type="password" placeholder="Ponovi geslo" name="pgeslo" required>
+				<form class="article-comment" method="POST" action="/registracija">
+			    <input type="text" placeholder="Uporabnisko ime" name="uporabnisko" pattern=".{5,20}[a-zA-Z0-9]" required>
+			    <input type="text" placeholder="E-pošta" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+			    <input type="password" placeholder="Geslo" name="geslo" pattern=".{5,20}[a-zA-Z0-9]" required>
+			    <input type="password" placeholder="Ponovi geslo" name="pgeslo" pattern=".{5,20}[a-zA-Z0-9]" required>
 			    <button type="submit">Registracija</button>
 			    <div class="regtext"> Že imate račun? <a href="login.html" class="reglink"> Prijava</a></div>
+			    </form>
 			</div>
 		</div>
 	</body>
