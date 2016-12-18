@@ -1,0 +1,29 @@
+------uporabnik-----
+-id (Integer)
+-uporabnisko_ime (String)
+-datum_prijave (Date)
+
+-----vprasanje-----
+-id (Integer)
+-vprasanje (String)
+-vsebina (String)
+-vseckov (Integer)
+-OP_id (Integer)
+-datum_objave (Date)
+
+----odgovor----
+-id (Integer)
+-parent_id (Integer)
+-OP_id (Integer)
+-vsebina (String)
+-vseckov (Integer)
+-datum_objave (Date)
+
+----komentar----
+-id (Integer)
+-parent_id (Integer)
+-OP_id (Integer)
+-vsebina (String)
+-vseckov (Integer)
+-datum_objave (Date)
+
