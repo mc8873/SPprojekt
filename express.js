@@ -1,7 +1,7 @@
 var express = require('express');
-var Sequelize = require('sequelize');
+var models = require('./models');
 
-
+/*
 var connection = new Sequelize('postgres://postgres:cesarces@localhost:5432/radovednez');
 
 var Uporabnik = connection.define('uporabnik', {
@@ -47,16 +47,29 @@ connection.sync({
 		password: 'hashedpass'
 	});
 });
-
+*/
 var path = require('path');
 var app = express();
+app.set('view engine', 'ejs');
 
-app.use(express.static(path.join(__dirname, 'public'))); //__dirname resolves to project folder
-
-app.get('/', function (req, res) {
-   res.sendFile(__dirname + '/public/landing.html');
+models.sequelize.sync({
+	force: true
 })
 
+
+var models = models.sequelize.models;
+var Uporabnik = models.Uporabnik;
+var Vprasanje = models.Vprasanje;
+var Odgovor = models.Odgovor;
+var Komentar = models.Komentar;
+
+
+app.get('/', function (req, res) {
+   res.render(__dirname + '/views/landing.ejs');
+})
+
+app.use('/',express.static(__dirname + '/')); //__dirname resolves to project folder
+
 app.listen(3000, function(){
-	console.log('Express started press Ctrl-c to terimnate.');
+	console.log('Express started on port 3000 press Ctrl-c to terimnate.');
 });

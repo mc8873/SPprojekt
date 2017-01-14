@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="./public/stylesheets/landing.css">
+<link rel="icon" href="./public/icons/favicon2.png">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+<title>Radovednez</title>
+	<body onload="odpritab()">
+		<header>
+		<div class="headerBackground">
+		<div class="centrirano">
+			<div class="logo"><a href=""><img src="icons/logo2.png" alt="logo"/></a></div>
+			<form>
+  				<input class="iskalnik" type="text" name="iskalnik" placeholder="Isci...">
+			</form>
+			<a href="vprasaj.html" class="gumb">vprašaj</a>
+			<a href="login.html" class="gumb">vpis</a>
+			<a href="registration.html" class="gumb">registracija</a>
+		</div>
+		</div>
+		</header>
+		<div class ="main">
+			<ul class="tab">
+			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'vsehcasov')">vseh časov</a></li>
+			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'meseca')">meseca</a></li>
+			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'tedna')">tedna</a></li>
+			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'trenutno')" id="prviTab"> top trenutno</a></li>
+			  	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'novo')">novo</a></li>
+			  	<li><p class = "bold"> Razvrsti vpršanja </p></li>
+			</ul>
+			<div id="trenutno" class="vsebinaTab">
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>32</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> <a href="vprasanje.html">Kako si zavezati čevlje?</a> </h2>
+									<p> Zanima me kako naj si zavežem čevlje. Sem se že trudil, ampak vedno ko začnem samo strmim v vezalke in nevem kaj naprej. Mi lahko kdo pomaga?</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">čevljarstvo</a>
+									<a class="temaTag">splošno</a>
+									<a class="temaTag">tehnika</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>12</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Zakaj se zemlja vrti?</h2>
+									<p> Zanima me zakaj se zemlja vrti. Mar nebi bilo bolje, če bi bil zmeraj dan?</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">znanost</a>
+									<a class="temaTag">vesolje</a>
+									<a class="temaTag">planeti</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>8</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2>Problem z mojo lopato?</h2>
+									<p>	Imam problem z svojo lopato. Kupil sem jo prejšen teden in ne deluje več. </p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">vrtnarstvo</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>1</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2>Koliko oliv gre v standardni kozarec za vlaganje?</h2>
+									<p>	Hočem vlagati olive pa nevem koliko kozarcev potrebujem za moje olive. Imam 2301 oliv.</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">olive</a>
+									<a class="temaTag">vlaganje</a>
+									<a class="temaTag">kulinarika</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="tedna" class="vsebinaTab">
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>32</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Kako si zavezati čevlje? </h2>
+									<p> Zanima me kako naj si zavežem čevlje. Sem se že trudil, ampak vedno ko začnem samo strmim v vezalke in nevem kaj naprej. Mi lahko kdo pomaga?</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">čevljarstvo</a>
+									<a class="temaTag">splošno</a>
+									<a class="temaTag">tehnika</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>12</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Zakaj se zemlja vrti?</h2>
+									<p> Zanima me zakaj se zemlja vrti. Mar nebi bilo bolje, če bi bil zmeraj dan? </p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">znanost</a>
+									<a class="temaTag">vesolje</a>
+									<a class="temaTag">planeti</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>8</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2>Problem z mojo lopato?</h2>
+									<p>	Imam problem z svojo lopato. Kupil sem jo prejšen teden in ne deluje več. </p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">vrtnarstvo</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>1</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2>Koliko oliv gre v standardni kozarec za vlaganje?</h2>
+									<p>	Hočem vlagati olive pa nevem koliko kozarcev potrebujem za moje olive. Imam 2301 oliv.</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">olive</a>
+									<a class="temaTag">vlaganje</a>
+									<a class="temaTag">kulinarika</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="meseca" class="vsebinaTab">
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>32</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Kako si zavezati čevlje? </h2>
+									<p> Zanima me kako naj si zavežem čevlje. Sem se že trudil, ampak vedno ko začnem samo strmim v vezalke in nevem kaj naprej. Mi lahko kdo pomaga?</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">čevljarstvo</a>
+									<a class="temaTag">splošno</a>
+									<a class="temaTag">tehnika</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>12</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Zakaj se zemlja vrti?</h2>
+									<p> Zanima me zakaj se zemlja vrti. Mar nebi bilo bolje, če bi bil zmeraj dan? </p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">znanost</a>
+									<a class="temaTag">vesolje</a>
+									<a class="temaTag">planeti</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>8</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2>Problem z mojo lopato?</h2>
+									<p>	Imam problem z svojo lopato. Kupil sem jo prejšen teden in ne deluje več. </p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">vrtnarstvo</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>1</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2>Koliko oliv gre v standardni kozarec za vlaganje?</h2>
+									<p>	Hočem vlagati olive pa nevem koliko kozarcev potrebujem za moje olive. Imam 2301 oliv.</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">olive</a>
+									<a class="temaTag">vlaganje</a>
+									<a class="temaTag">kulinarika</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="vsehcasov" class="vsebinaTab">
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>32</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Kako si zavezati čevlje? </h2>
+									<p> Zanima me kako naj si zavežem čevlje. Sem se že trudil, ampak vedno ko začnem samo strmim v vezalke in nevem kaj naprej. Mi lahko kdo pomaga?</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">čevljarstvo</a>
+									<a class="temaTag">splošno</a>
+									<a class="temaTag">tehnika</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>12</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Zakaj se zemlja vrti?</h2>
+									<p> Zanima me zakaj se zemlja vrti. Mar nebi bilo bolje, če bi bil zmeraj dan? </p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">znanost</a>
+									<a class="temaTag">vesolje</a>
+									<a class="temaTag">planeti</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>8</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2>Problem z mojo lopato?</h2>
+									<p>	Imam problem z svojo lopato. Kupil sem jo prejšen teden in ne deluje več. </p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">vrtnarstvo</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>1</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2>Koliko oliv gre v standardni kozarec za vlaganje?</h2>
+									<p>	Hočem vlagati olive pa nevem koliko kozarcev potrebujem za moje olive. Imam 2301 oliv.</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">olive</a>
+									<a class="temaTag">vlaganje</a>
+									<a class="temaTag">kulinarika</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="novo" class="vsebinaTab">
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>1</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2>Koliko oliv gre v standardni kozarec za vlaganje?</h2>
+									<p>	Hočem vlagati olive pa nevem koliko kozarcev potrebujem za moje olive. Imam 2301 oliv.</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">olive</a>
+									<a class="temaTag">vlaganje</a>
+									<a class="temaTag">kulinarika</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>8</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2>Problem z mojo lopato?</h2>
+									<p>	Imam problem z svojo lopato. Kupil sem jo prejšen teden in ne deluje več. </p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">vrtnarstvo</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>32</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Kako si zavezati čevlje? </h2>
+									<p> Zanima me kako naj si zavežem čevlje. Sem se že trudil, ampak vedno ko začnem samo strmim v vezalke in nevem kaj naprej. Mi lahko kdo pomaga?</p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">čevljarstvo</a>
+									<a class="temaTag">splošno</a>
+									<a class="temaTag">tehnika</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div class ="vprasanje">
+					<table>
+						<tr>
+							<td class="votecell">
+								<img class = "voteimg" src="icons/like.svg" alt="like"/>
+								<span>12</span>
+								<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							</td>
+							<td class="questcell">
+								<article>
+									<h2> Zakaj se zemlja vrti?</h2>
+									<p> Zanima me zakaj se zemlja vrti. Mar nebi bilo bolje, če bi bil zmeraj dan? </p>
+								</article>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							</td>
+							<td>
+								<span>
+									<a class="temaTag">znanost</a>
+									<a class="temaTag">vesolje</a>
+									<a class="temaTag">planeti</a>
+								</span>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	<footer>
+	<div class="headerBackground">
+      <div class="centrirano">
+      	<div class="footerContent">
+        <a href="login.html">Prijava</a> | 
+        <a href="registration.html">Registracija</a> |
+        <a href="vprasaj.html">Vprašaj</a><br>
+        Avtor: Matevž Cesar
+        </div> 
+        </div>
+      </div>
+    </footer>
+	<script src="./public/js/landing.js"></script>
+	</body>
+</html>
