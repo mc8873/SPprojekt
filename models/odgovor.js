@@ -9,7 +9,8 @@ var Odgovor = sequalize.define('odgovor', {
 	freezeTableName: true,
 	classMethods: {
 		associate: function(models) {
-			Odgovor.hasMany(models.komentar);
+			Odgovor.belongsTo(models.vprasanje);
+			Odgovor.belongsTo(models.uporabnik);
 		}
 	}
 });

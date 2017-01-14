@@ -1,19 +1,18 @@
 "use strict";
+var bcrypt = require('bcrypt-nodejs');
 
 module.exports = function(sequalize, DataTypes) {
 
 var Uporabnik = sequalize.define('uporabnik', {
 	uporabnikso_ime: DataTypes.STRING,
-	password: DataTypes.TEXT
+	password: DataTypes.CHAR
 }, {
-	freezeTableName: true,
-	classMethods: {
-		associate: function(models) {
-			Uporabnik.hasMany(models.vprasanje);
-			Uporabnik.hasMany(models.odgovor);
-			Uporabnik.hasMany(models.komentar);
+	hooks: {
+		afterValidate: function(uporabnik) {
+			uporabnik.password = bcrypt.hashSync(uporabnik.password);
 		}
-	}
+	},
+	freezeTableName: true
 });
 
 return Uporabnik;

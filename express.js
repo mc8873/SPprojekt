@@ -1,5 +1,9 @@
 var express = require('express');
 var models = require('./models');
+var expressSession = require('express-session');
+var $= require('jquery');
+var path = require('path');
+var app = express();
 
 /*
 var connection = new Sequelize('postgres://postgres:cesarces@localhost:5432/radovednez');
@@ -48,20 +52,39 @@ connection.sync({
 	});
 });
 */
-var path = require('path');
-var app = express();
-app.set('view engine', 'ejs');
 
-models.sequelize.sync({
+
+
+var seqModels = models.sequelize;
+var seqModel;
+var uporabnik;
+var vprasanje;
+var odgovor;
+var komentar;
+
+seqModels.sync({
 	force: true
-})
+}).then(function () {
+	seqModel = seqModels.models;
+	uporabnik = seqModel.uporabnik;
+	vprasanje = seqModel.vprasanje;
+	odgovor = seqModel.odgovor;
+	komentar = seqModel.komentar;
+
+	uporabnik.create({
+		uporabnikso_ime: 'skankhunt42',
+		password: 'hashedpass'
+	});
+	vprasanje.create({
+		vprasanje_objave: 'Kako ugasniti racunalnik?',
+		vsebina_objave: 'Zelo me zanima kako ugasniti racunalnik, to sem si vedno zelel znati.',
+		vseckov: 12,
+		uporabnikId: 2
+	});
+});
 
 
-var models = models.sequelize.models;
-var Uporabnik = models.Uporabnik;
-var Vprasanje = models.Vprasanje;
-var Odgovor = models.Odgovor;
-var Komentar = models.Komentar;
+app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
