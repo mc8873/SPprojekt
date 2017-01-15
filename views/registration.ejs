@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../public/stylesheets/login.css">
+		<link rel="icon" href="../public/icons/favicon2.png">
+		<title>Registracija</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	</head>
+	<body>
+		<div class="centrirano">
+			<div class="logocontainer">
+			<a href="/"><img class="logo" src="../public/icons/loginLogo.png" alt="logo"/></a>
+			</div>
+			<div class="fieldcontainer">
+				<form class="article-comment" method="POST" action="/registration">
+			    <input type="text" placeholder="Uporabnisko ime" name="uporabnisko" pattern=".{5,20}[a-zA-Z0-9]" required>
+			    <input type="text" placeholder="E-pošta" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
+			    <input type="password" placeholder="Geslo" name="geslo" pattern=".{5,20}[a-zA-Z0-9]" id="geslo" required >
+			    <input type="password" placeholder="Ponovi geslo" name="pgeslo" pattern=".{5,20}[a-zA-Z0-9]" id="pgeslo" required>
+			    <button type="submit">Registracija</button>
+			    <div class="regtext"> Že imate račun? <a href="/login" class="reglink"> Prijava</a></div>
+			    </form>
+			</div>
+		</div>
+		<script>
+			var password = document.getElementById("geslo"), confirm_password = document.getElementById("pgeslo");
+
+			function validatePassword(){
+			  if(password.value != confirm_password.value) {
+			    confirm_password.setCustomValidity("Gesli se ne ujemata");
+			  } else {
+			    confirm_password.setCustomValidity('');
+			  }
+			}
+
+			password.onchange = validatePassword;
+			confirm_password.onkeyup = validatePassword;
+		</script>
+	</body>
+
+</html>

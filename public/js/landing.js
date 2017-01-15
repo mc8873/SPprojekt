@@ -23,9 +23,10 @@ function dodajOdgovor(){
 
 }
 
-function komentiraj(event){
+function komentiraj(event,odgovorid){
     modal.style.display = "block";
     tabela = event.currentTarget.parentNode.parentNode.parentNode;
+    document.getElementById("commentBox").value = odgovorid;
 }
 
 function oznaciOdgovor(event){

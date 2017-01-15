@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="../public/stylesheets/landing.css">
+<link rel="icon" href="../public/icons/favicon2.png">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+<title>Radovednez</title>
+	<body>
+		<header>
+		<div class="headerBackground">
+		<div class="centrirano">
+			<div class="logo"><a href="/"><img src="../public/icons/logo2.png" alt="logo"/></a></div>
+			<form>
+  				<input class="iskalnik" type="text" name="iskalnik" placeholder="Isci...">
+			</form>
+			<a href="/vprasaj" class="gumb">vprašaj</a>
+			<% if (username == null) {%>
+			<a href="/login" class="gumb">vpis</a>
+			<a href="/registration" class="gumb">registracija</a>
+			<% } else { %>
+			<a href="/logout" class="gumb">izpis</a>
+			<a href="" class="gumb"><%= username %></a>
+			<% } %>
+		</div>
+		</div>
+		</header>
+		<div class= "main">
+			<div class="vprasanjeContainer">
+				<div class="novVnosContainer">
+				<form class="article-comment" method="POST" action="/objavi_vprasanje">
+				<table>
+					<tr>
+						<td>Vaše vprašanje: </td>
+						<td><input class="novVnos" type="text" maxlength="30" name="vprasanje" pattern=".+\?" required></td>
+					</tr>
+					<tr>
+						<td>Opis problema:</td>
+						<td><textarea rows="4" cols="50" name="opis" required></textarea></td>
+					</tr>
+				</table>
+				<button class="gumbOdgovori">Objavi</button>
+				</form>
+				</div>
+			</div>
+		</div>
+	<footer>
+	<div class="headerBackground">
+      <div class="centrirano">
+      	<div class="footerContent">
+        <a href="/login">Prijava</a> | 
+        <a href="/registration">Registracija</a> |
+        <a href="/vprasaj">Vprašaj</a><br>
+        Avtor: Matevž Cesar
+        </div> 
+        </div>
+      </div>
+    </footer>
+	<script src="../public/js/landing.js"></script>
+	</body>
+</html>

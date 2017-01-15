@@ -5,7 +5,7 @@ module.exports = function(sequalize, DataTypes) {
 
 var Uporabnik = sequalize.define('uporabnik', {
 	uporabnikso_ime: DataTypes.STRING,
-	password: DataTypes.CHAR
+	password: DataTypes.TEXT
 }, {
 	hooks: {
 		afterValidate: function(uporabnik) {

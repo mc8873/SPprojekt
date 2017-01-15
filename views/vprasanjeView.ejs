@@ -9,13 +9,18 @@
 		<header>
 		<div class="headerBackground">
 		<div class="centrirano">
-			<div class="logo"><a href="landing.html"><img src="../public/icons/logo2.png" alt="logo"/></a></div>
+			<div class="logo"><a href="/"><img src="../public/icons/logo2.png" alt="logo"/></a></div>
 			<form>
   				<input class="iskalnik" type="text" name="iskalnik" placeholder="Isci...">
 			</form>
-			<a href="vprasaj.html" class="gumb">vprašaj</a>
-			<a href="login.html" class="gumb">vpis</a>
-			<a href="registration.html" class="gumb">registracija</a>
+			<a href="/vprasaj" class="gumb">vprašaj</a>
+			<% if (username == null) {%>
+			<a href="/login" class="gumb">vpis</a>
+			<a href="/registration" class="gumb">registracija</a>
+			<% } else { %>
+			<a href="/logout" class="gumb">izpis</a>
+			<a href="" class="gumb"><%= username %></a>
+			<% } %>
 		</div>
 		</div>
 		</header>
@@ -50,94 +55,90 @@
 					<tr>
 						<td>
 						</td>
-						<td>
-							<span>
-								<a class="temaTag">čevljarstvo</a>
-								<a class="temaTag">splošno</a>
-								<a class="temaTag">tehnika</a>
-							</span>
-						</td>
 					</tr>
 				</table>
 			</div>
 			<div class="odgovoriContainer">
 				<p class="bold"> Objavi odgovor</p>
+				<form class="article-comment" method="POST" action="/odgovori">
+				<input type="hidden" name="vprasanje" value="<%=vprasanjeId%>" />
 				<textarea id="odgovorBoks" name="odgovor" rows="7" cols="80" placeholder="" required></textarea>
-				<button class="gumbOdgovori" onclick="dodajOdgovor()">Odgovori</button>
+				<button class="gumbOdgovori"">Odgovori</button>
+				</form>
 			</div>
 			<div class="odgovoriContainer" id="odgovoriContainer">
-				<table>
+					<% seznamOdg.forEach(function(odgovor) { %>
+					<% var vsebinaOdg = odgovor.dataValues.vsebina; %>
+					<% var vseckovOdg = odgovor.dataValues.vseckov; %>
+					<% var idOdg = odgovor.dataValues.id; %>
+					<table>
 					<tr>
 						<td class="votecell">
-							<img class = "voteimg" src="icons/like.svg" alt="like"/>
-							<span>10</span>
-							<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+							<img class = "voteimg" src="../public/icons/like.svg" alt="like"/>
+							<span><%= vseckovOdg %></span>
+							<img class = "voteimg" src="../public/icons/dislike.svg" alt="like"/>
 						</td>
 						<td class="questcell">
-								<p>Priporočam ti da si kupiš čevlje na ježke. Tudi sam sem imel težave z vezalkami, ko pa sem izvedel za čevlje na ježka, se mi je spremenilo življenje. V Hoferju jih imajo na blagajni za 5€, zraven žvečilk.</p>
-								<p>--- anon</p>
+								<p> <%= vsebinaOdg %></p>
+								<% seznamUpor.forEach(function(uporabnik) { %>
+								<% if(uporabnik.dataValues.id == odgovor.dataValues.uporabnikId) {%>
+									<p>--- <%= uporabnik.dataValues.uporabnikso_ime%></p>
+								<%}%>
+								<% });%>
 						</td>
 					</tr>
 					<tr>
 					<td></td>
 					<td>
-						<a href="javascript:void(0)" class="odgovorLink" onclick="komentiraj(event)">komentiraj</a>
+						<a href="javascript:void(0)" class="odgovorLink" onclick="komentiraj(event,<%= idOdg %>)">komentiraj</a>
 						<a class="odgovorLink">označi za neprimerno</a>
 						<a href="javascript:void(0)" class="odgovorLink" onclick="oznaciOdgovor(event)">označi za dober odgovor</a>
 					</td>
 					</tr>
-					<tr>
-					<td></td>
-					<td>
-						<table>
-							<tr>
-								<td class="votecell">
-									<img class = "voteimg" src="icons/like.svg" alt="like"/>
-									<span>2</span>
-									<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+					<% seznamKom.forEach(function(komentar) {%>
+						<% if (komentar.dataValues.odgovorId == odgovor.dataValues.id) { %>
+						<tr>
+						<td></td>
+						<td>
+							<table>
+								<tr>
+									<td class="votecell">
+										<img class = "voteimg" src="../public/icons/like.svg" alt="like"/>
+										<span><%= komentar.dataValues.vseckov %></span>
+										<img class = "voteimg" src="../public/icons/dislike.svg" alt="like"/>
+									</td>
+									<td class="questcell">
+											<p><%= komentar.dataValues.vsebina %></p>
+											<% seznamUpor.forEach(function(uporabnik) { %>
+											<% if(uporabnik.dataValues.id == komentar.dataValues.uporabnikId) {%>
+												<p>--- <%= uporabnik.dataValues.uporabnikso_ime%></p>
+											<%}%>
+											<% });%>
+									</td>
+								</tr>
+								<tr>
+								<td></td>
+								<td>
+									<a class="odgovorLink">označi za neprimerno</a>
 								</td>
-								<td class="questcell">
-										<p>Se strinjam. Še bolje pa je če si kupiš sandale na ježka saj so mnogo bolj udobni. Osebno jih nosim skoraj celo leto, ko rata mrzlo pa samo nadanem nogavice in je problem rešen.</p>
-										<p>--- anon</p>
-								</td>
-							</tr>
-							<tr>
-							<td></td>
-							<td>
-								<a class="odgovorLink">označi za neprimerno</a>
-							</td>
-							</tr>
-						</table>
-					</td>
-					</tr>
-				</table>
-				<table>
-					<tr>
-						<td class="votecell">
-							<img class = "voteimg" src="icons/like.svg" alt="like"/>
-							<span>1</span>
-							<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+								</tr>
+							</table>
 						</td>
-						<td class="questcell">
-								<p> Poskusi pogooglati.</p>
-								<p>--- anon</p>
-						</td>
-					</tr>
-					<tr>
-					<td></td>
-					<td>
-						<a href="javascript:void(0)" class="odgovorLink" onclick="komentiraj(event)">komentiraj</a>
-						<a class="odgovorLink">označi za neprimerno</a>
-						<a href="javascript:void(0)" class="odgovorLink" onclick="oznaciOdgovor(event)">označi za dober odgovor</a>
-					</td>
-					</tr>
+						</tr>
+						<% } %>
+					<% });%>
 				</table>
+				<% }); %>
 			</div>
 			<div id="modalComment" class="modal">
 			  <div class="modalvsebina">
 			    <p class="bold"> Komentiraj</p>
-					<textarea id="komentarBoks" name="odgovor" rows="7" cols="80" placeholder="" required></textarea>
-					<button class="gumbOdgovori" id="gumbKomentiraj" onclick="dodajKomentar()">Komentiraj</button>
+			    	<form class="article-comment" method="POST" action="/komentiraj">
+			    	<input type="hidden" name="odgovor" value="" id="commentBox" />
+			    	<input type="hidden" name="vprasanje" value="<%=vprasanjeId%>" />
+					<textarea id="komentarBoks" name="komentar" rows="7" cols="80" placeholder="" required></textarea>
+					<button class="gumbOdgovori" id="gumbKomentiraj" >Komentiraj</button>
+					</form>
 			  </div>
 			</div>
 		</div>
@@ -145,9 +146,9 @@
 	<div class="headerBackground">
       <div class="centrirano">
       	<div class="footerContent">
-        <a href="login.html">Prijava</a> | 
-        <a href="registration.html">Registracija</a> |
-        <a href="vprasaj.html">Vprašaj</a><br>
+        <a href="/login">Prijava</a> | 
+        <a href="/registration">Registracija</a> |
+        <a href="/vprasaj">Vprašaj</a><br>
         Avtor: Matevž Cesar
         </div> 
         </div>

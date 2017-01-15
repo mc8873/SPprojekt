@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../public/stylesheets/login.css">
+		<link rel="icon" href="../public/icons/favicon2.png">
+		<title>Vpis</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	</head>
+	<body>
+		<div class="centrirano">
+			<div class="logocontainer">
+			<a href="/"><img class="logo" src="../public/icons/loginLogo.png" alt="logo"/></a>
+			</div>
+			<div class="fieldcontainer">
+				<form class="article-comment" method="POST" action="/login">
+			    <input type="text" placeholder="Uporabnisko ime" name="uporabnisko" pattern=".{5,20}[a-zA-Z0-9]" required>
+			    <input type="password" placeholder="Geslo" name="geslo" pattern=".{5,20}[a-zA-Z0-9]"  required>
+			    <button type="submit">Prijava</button>
+			    </form>
+			    <div class="regtext"> Še niste uporabnik? <a href="/registration" class="reglink"> Registracija</a></div>
+			</div>
+		</div>
+	</body>
+
+
+</html>
