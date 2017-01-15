@@ -141,6 +141,36 @@ app.get('/meseca', function(req, res) {
 	});
 });
 
+
+app.param('vprId', function(req, res, next, vprId) {
+
+  	vprasanje.findAll({where: {id: vprId}}).then( function(vprasanjeInstanca) {
+    if (vprasanjeInstanca == null) {
+    	console.log('shit');
+    } else {
+    	//console.log(vprasanjeInstanca[0].dataValues);
+      req.vprasanje = vprasanjeInstanca[0];
+    };
+
+    next();
+  });
+});
+
+
+app.get('/vprasanje/:vprId', function (req, res) {
+	if(req.vprasanje != null) {
+		uporabnik.findAll({where: {id: req.vprasanje.dataValues.uporabnikId }}).then(function (uporabnikInstanca) {
+				odgovor.findAll({where: {vprasanjeId: req.vprasanje.dataValues.id}}).then (function (seznamOdgovorov){
+					seznamOdgovorov.forEach(odgovor) //oshit...
+				});
+				//res.render('vprasanjeView', {
+		    	//mainVprasanje: req.vprasanje,
+		    	//uporabnikOP: uporabnikInstanca[0].dataValues.uporabnikso_ime
+		    });
+		});
+	}
+});
+
 app.use('/',express.static(__dirname + '/')); //__dirname resolves to project folder
 
 app.listen(3000, function(){

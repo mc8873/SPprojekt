@@ -33,6 +33,7 @@
 				<% var vprasanje_vsebina = vprasanje.dataValues.vprasanje_objave; %>
 				<% var vsebina = vprasanje.dataValues.vsebina_objave; %>
 				<% var vseckov = vprasanje.dataValues.vseckov; %>
+				<% var vprasanjeId = vprasanje.dataValues.id; %>
 				<table>
 						<tr>
 							<td class="votecell">
@@ -42,7 +43,7 @@
 							</td>
 							<td class="questcell">
 								<article>
-									<h2> <a href="vprasanje.html"><%=vprasanje_vsebina %></a> </h2>
+									<h2> <a href="/vprasanje/<%= vprasanjeId%>"><%=vprasanje_vsebina %></a> </h2>
 									<p> <%=vsebina %></p>
 								</article>
 							</td>

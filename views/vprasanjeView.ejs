@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" type="text/css" href="../public/stylesheets/landing.css">
+<link rel="icon" href="../public/icons/favicon2.png">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+<title>Radovednez</title>
+	<body>
+		<header>
+		<div class="headerBackground">
+		<div class="centrirano">
+			<div class="logo"><a href="landing.html"><img src="../public/icons/logo2.png" alt="logo"/></a></div>
+			<form>
+  				<input class="iskalnik" type="text" name="iskalnik" placeholder="Isci...">
+			</form>
+			<a href="vprasaj.html" class="gumb">vprašaj</a>
+			<a href="login.html" class="gumb">vpis</a>
+			<a href="registration.html" class="gumb">registracija</a>
+		</div>
+		</div>
+		</header>
+		<div class= "main">
+			<% var vprasanjeMain = mainVprasanje.vprasanje_objave; %>
+			<% var vprasanjeVsebina = mainVprasanje.vsebina_objave; %>
+			<% var vseckov = mainVprasanje.vseckov; %>
+			<% var vprasanjeId = mainVprasanje.id; %>
+			<% var OPname = uporabnikOP; %>
+			<div class="vprasanjeContainer">
+				<table>
+					<tr>
+						<td class="votecell">
+							<img class = "voteimg" src="../public/icons/like.svg" alt="like"/>
+							<span><%= vseckov %></span>
+							<img class = "voteimg" src="../public/icons/dislike.svg" alt="like"/>
+						</td>
+						<td class="questcell">
+							<article>
+								<h2> <%= vprasanjeMain %></h2>
+								<p> <%= vprasanjeVsebina %></p>
+								<p>--- <%= OPname%></p>
+							</article>
+						</td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>
+						<a class="odgovorLink">označi za neprimerno</a>
+					</td>
+					</tr>
+					<tr>
+						<td>
+						</td>
+						<td>
+							<span>
+								<a class="temaTag">čevljarstvo</a>
+								<a class="temaTag">splošno</a>
+								<a class="temaTag">tehnika</a>
+							</span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<div class="odgovoriContainer">
+				<p class="bold"> Objavi odgovor</p>
+				<textarea id="odgovorBoks" name="odgovor" rows="7" cols="80" placeholder="" required></textarea>
+				<button class="gumbOdgovori" onclick="dodajOdgovor()">Odgovori</button>
+			</div>
+			<div class="odgovoriContainer" id="odgovoriContainer">
+				<table>
+					<tr>
+						<td class="votecell">
+							<img class = "voteimg" src="icons/like.svg" alt="like"/>
+							<span>10</span>
+							<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+						</td>
+						<td class="questcell">
+								<p>Priporočam ti da si kupiš čevlje na ježke. Tudi sam sem imel težave z vezalkami, ko pa sem izvedel za čevlje na ježka, se mi je spremenilo življenje. V Hoferju jih imajo na blagajni za 5€, zraven žvečilk.</p>
+								<p>--- anon</p>
+						</td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>
+						<a href="javascript:void(0)" class="odgovorLink" onclick="komentiraj(event)">komentiraj</a>
+						<a class="odgovorLink">označi za neprimerno</a>
+						<a href="javascript:void(0)" class="odgovorLink" onclick="oznaciOdgovor(event)">označi za dober odgovor</a>
+					</td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>
+						<table>
+							<tr>
+								<td class="votecell">
+									<img class = "voteimg" src="icons/like.svg" alt="like"/>
+									<span>2</span>
+									<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+								</td>
+								<td class="questcell">
+										<p>Se strinjam. Še bolje pa je če si kupiš sandale na ježka saj so mnogo bolj udobni. Osebno jih nosim skoraj celo leto, ko rata mrzlo pa samo nadanem nogavice in je problem rešen.</p>
+										<p>--- anon</p>
+								</td>
+							</tr>
+							<tr>
+							<td></td>
+							<td>
+								<a class="odgovorLink">označi za neprimerno</a>
+							</td>
+							</tr>
+						</table>
+					</td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<td class="votecell">
+							<img class = "voteimg" src="icons/like.svg" alt="like"/>
+							<span>1</span>
+							<img class = "voteimg" src="icons/dislike.svg" alt="like"/>
+						</td>
+						<td class="questcell">
+								<p> Poskusi pogooglati.</p>
+								<p>--- anon</p>
+						</td>
+					</tr>
+					<tr>
+					<td></td>
+					<td>
+						<a href="javascript:void(0)" class="odgovorLink" onclick="komentiraj(event)">komentiraj</a>
+						<a class="odgovorLink">označi za neprimerno</a>
+						<a href="javascript:void(0)" class="odgovorLink" onclick="oznaciOdgovor(event)">označi za dober odgovor</a>
+					</td>
+					</tr>
+				</table>
+			</div>
+			<div id="modalComment" class="modal">
+			  <div class="modalvsebina">
+			    <p class="bold"> Komentiraj</p>
+					<textarea id="komentarBoks" name="odgovor" rows="7" cols="80" placeholder="" required></textarea>
+					<button class="gumbOdgovori" id="gumbKomentiraj" onclick="dodajKomentar()">Komentiraj</button>
+			  </div>
+			</div>
+		</div>
+	<footer>
+	<div class="headerBackground">
+      <div class="centrirano">
+      	<div class="footerContent">
+        <a href="login.html">Prijava</a> | 
+        <a href="registration.html">Registracija</a> |
+        <a href="vprasaj.html">Vprašaj</a><br>
+        Avtor: Matevž Cesar
+        </div> 
+        </div>
+      </div>
+    </footer>
+	<script src="../public/js/landing.js"></script>
+	</body>
+</html>
