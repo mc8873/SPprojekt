@@ -2,9 +2,10 @@
 <html>
 <link rel="stylesheet" type="text/css" href="../public/stylesheets/landing.css">
 <link rel="icon" href="../public/icons/favicon2.png">
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
 <title>Radovednez</title>
-	<body onload="odpritab()">
+	<body>
 		<header>
 		<div class="headerBackground">
 		<div class="centrirano">
@@ -20,26 +21,29 @@
 		</header>
 		<div class ="main">
 			<ul class="tab">
-			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'vsehcasov')">vseh časov</a></li>
-			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'meseca')">meseca</a></li>
-			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'tedna')">tedna</a></li>
-			 	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'trenutno')" id="prviTab"> top trenutno</a></li>
-			  	<li><a href="javascript:void(0)" class="tabs" onclick="odpriTab(event, 'novo')">novo</a></li>
+			 	<li><a href="/" class="tabs" onclick="odpriTab(event, 'vsehcasov')" id ="vsehvcasovTab">vseh časov</a></li>
+			 	<li><a href="/meseca" class="tabs" onclick="odpriTab(event, 'meseca')" id="mesecaTab">meseca</a></li>
+			 	<li><a href="/tedna" class="tabs" onclick="odpriTab(event, 'tedna')" id ="tednaTab">tedna</a></li>
+			  	<li><a href="/novo" class="tabs" onclick="odpriTab(event, 'novo')" id ="novoTab">novo</a></li>
 			  	<li><p class = "bold"> Razvrsti vpršanja </p></li>
 			</ul>
 			<div id="trenutno" class="vsebinaTab">
+			<% seznamVprasanj.forEach(function(vprasanje) { %>
 				<div class ="vprasanje">
-					<table>
+				<% var vprasanje_vsebina = vprasanje.dataValues.vprasanje_objave; %>
+				<% var vsebina = vprasanje.dataValues.vsebina_objave; %>
+				<% var vseckov = vprasanje.dataValues.vseckov; %>
+				<table>
 						<tr>
 							<td class="votecell">
 								<img class = "voteimg" src="../public/icons/like.svg" alt="like"/>
-								<span>32</span>
+								<span><%=vseckov %></span>
 								<img class = "voteimg" src="../public/icons/dislike.svg" alt="like"/>
 							</td>
 							<td class="questcell">
 								<article>
-									<h2> <a href="vprasanje.html">Kako si zavezati čevlje?</a> </h2>
-									<p> Zanima me kako naj si zavežem čevlje. Sem se že trudil, ampak vedno ko začnem samo strmim v vezalke in nevem kaj naprej. Mi lahko kdo pomaga?</p>
+									<h2> <a href="vprasanje.html"><%=vprasanje_vsebina %></a> </h2>
+									<p> <%=vsebina %></p>
 								</article>
 							</td>
 						</tr>
@@ -56,34 +60,8 @@
 						</tr>
 					</table>
 				</div>
-				<div class ="vprasanje">
-					<table>
-						<tr>
-							<td class="votecell">
-								<img class = "voteimg" src="../public/icons/like.svg" alt="like"/>
-								<span>12</span>
-								<img class = "voteimg" src="../public/icons/dislike.svg" alt="like"/>
-							</td>
-							<td class="questcell">
-								<article>
-									<h2> Zakaj se zemlja vrti?</h2>
-									<p> Zanima me zakaj se zemlja vrti. Mar nebi bilo bolje, če bi bil zmeraj dan?</p>
-								</article>
-							</td>
-						</tr>
-						<tr>
-							<td>
-							</td>
-							<td>
-								<span>
-									<a class="temaTag">znanost</a>
-									<a class="temaTag">vesolje</a>
-									<a class="temaTag">planeti</a>
-								</span>
-							</td>
-						</tr>
-					</table>
-				</div>
+			<% }); %>
+				
 			</div>
 		</div>
 	<footer>
