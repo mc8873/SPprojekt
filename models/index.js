@@ -5,15 +5,6 @@ var Sequelize = require('sequelize');
 var fs = require('fs');
 
 var sequelize = new Sequelize('postgres://postgres:cesarces@localhost:5432/radovednez');
-/*
-var sequelize = new Sequelize(
-	"radovednez",
-	"postgres",
-	"cesarces",
-	{
-		dialect: 'postgres'
-	}
-);*/
 
 var db = {};
 fs

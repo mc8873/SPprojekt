@@ -1,28 +1,10 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" type="text/css" href="../public/stylesheets/landing.css">
-<link rel="icon" href="../public/icons/favicon2.png">
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script> 
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8"> 
+<% include defs %>
 <title>Radovednez</title>
 	<body>
 		<header>
-		<div class="headerBackground">
-		<div class="centrirano">
-			<div class="logo"><a href="/"><img src="../public/icons/logo2.png" alt="logo"/></a></div>
-			<form>
-  				<input class="iskalnik" type="text" name="iskalnik" placeholder="Isci...">
-			</form>
-			<a href="/vprasaj" class="gumb">vprašaj</a>
-			<% if (username == null) {%>
-			<a href="/login" class="gumb">vpis</a>
-			<a href="/registration" class="gumb">registracija</a>
-			<% } else { %>
-			<a href="/logout" class="gumb">izpis</a>
-			<a href="" class="gumb"><%= username %></a>
-			<% } %>
-		</div>
-		</div>
+			<% include header %>
 		</header>
 		<div class= "main">
 			<% var vprasanjeMain = mainVprasanje.vprasanje_objave; %>
@@ -143,17 +125,7 @@
 			</div>
 		</div>
 	<footer>
-	<div class="headerBackground">
-      <div class="centrirano">
-      	<div class="footerContent">
-        <a href="/login">Prijava</a> | 
-        <a href="/registration">Registracija</a> |
-        <a href="/vprasaj">Vprašaj</a><br>
-        Avtor: Matevž Cesar
-        </div> 
-        </div>
-      </div>
-    </footer>
+	<% include footer %>
 	<script src="../public/js/landing.js"></script>
 	</body>
 </html>

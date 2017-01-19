@@ -1,0 +1,16 @@
+		<div class="headerBackground">
+		<div class="centrirano">
+			<div class="logo"><a href="/"><img src="../public/icons/logo2.png" alt="logo"/></a></div>
+			<form method="POST" action="/isci">
+  				<input class="iskalnik" type="text" name="iskalnik" placeholder="Isci...">
+			</form>
+			<a href="/vprasaj" class="gumb">vprašaj</a>
+			<% if (username == null) {%>
+			<a href="/login" class="gumb">vpis</a>
+			<a href="/registration" class="gumb">registracija</a>
+			<% } else { %>
+			<a href="/logout" class="gumb">izpis</a>
+			<a href="" class="gumb"><%= username %></a>
+			<% } %>
+		</div>
+		</div>

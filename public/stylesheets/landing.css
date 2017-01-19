@@ -86,7 +86,7 @@ tr {
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
     background-color: white;
-    background-image: url('icons/iskalnik.png');
+    background-image: url('../icons/iskalnik.png');
     background-position: 10px 7px;
     background-repeat: no-repeat;
     padding: 5px 20px 5px 40px;

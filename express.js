@@ -1,12 +1,8 @@
 var express = require('express');
 var models = require('./models');
-//var session = require('express-session');
 var session = require('client-sessions');
-//var passport = require('passport');
-//var localStrategy = require('passport-loccal');
 var bodyParser = require('body-parser');
 var date = require('datejs');
-var $= require('jquery');
 var path = require('path');
 var bcrypt = require('bcrypt-nodejs');
 var app = express();
@@ -19,6 +15,7 @@ var vprasanje;
 var odgovor;
 var komentar;
 
+
 var thisWeek = (7).days().ago();
 var thisMonth = (30).days().ago();
 var week = thisWeek.toString('yyyy-MM-dd') + " 00:00:00.000 +00:00";
@@ -29,7 +26,7 @@ app.use(session({
   secret: 'verysecuresession',
   duration: 30 * 60 * 1000,
   activeDuration: 5 * 60 * 1000,
-}));
+})); 
 
 seqModels.sync({
 	force: false
@@ -130,33 +127,45 @@ app.get('/meseca', function(req, res) {
 	});
 });
 
+var paramsPatt = new RegExp(".{5,20}[a-zA-Z0-9]");
+
 
 app.post('/registration', function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
-	//preveri ce username ze obstaja
-	uporabnik.findOne({uporabnikso_ime: req.body.uporabnisko}).then(function (uporabnik) {
-	 		if(uporabnik.dataValues == null){
-	 			res.redirect('registration');
-	 		}
-	 		else {
-	 			//dodamo uporabnika v pb
-	 			seqModels.sync({
-					force: false
-				}).then(function () {
-					seqModel = seqModels.models;
-					uporabnik = seqModel.uporabnik;
-					vprasanje = seqModel.vprasanje;
-					odgovor = seqModel.odgovor;
-					komentar = seqModel.komentar;
+	//preveri ce so polja veljavna
+	console.log("zacetek.." + req.body.uporabnisko);
+	console.log(paramsPatt.test(req.body.uporabnisko));
+	if (req.body.uporabnisko!=null && req.body.geslo!=null && paramsPatt.test(req.body.uporabnisko) && paramsPatt.test(req.body.geslo) && (req.body.geslo == req.body.pgeslo) ) {
+		//preveri ce username ze obstaja
+		uporabnik.findAll({where: {uporabnikso_ime: req.body.uporabnisko}}).then(function (uporabnik) {
+				
+		 		if(uporabnik[0] == null){
+		 			//dodamo uporabnika v pb
+		 			seqModels.sync({
+						force: false
+					}).then(function () {
+						seqModel = seqModels.models;
+						uporabnik = seqModel.uporabnik;
+						vprasanje = seqModel.vprasanje;
+						odgovor = seqModel.odgovor;
+						komentar = seqModel.komentar;
 
-					uporabnik.create({
-						uporabnikso_ime: req.body.uporabnisko,
-						password: req.body.geslo
+						uporabnik.create({
+							uporabnikso_ime: req.body.uporabnisko,
+							password: req.body.geslo
+						});
 					});
-				});
-				res.redirect('/');
-	 		}
-	 	});
+					res.redirect('/');
+		 			
+		 		}
+		 		else {
+		 			res.redirect('registration');
+		 		}
+		 	});
+	}
+	else {
+		res.send('Invalid paramaters.');
+	}
 });
 
 app.post('/login', function (req, res) {
@@ -164,17 +173,23 @@ app.post('/login', function (req, res) {
 	//preverimo ce je uporabnik v pb
 		 console.log(req.body.uporabnisko);
 	 	uporabnik.findAll({where: {uporabnikso_ime: req.body.uporabnisko}}).then(function (uporabnik) {
-	 		console.log(req.body.geslo);
-	 		console.log(uporabnik[0].dataValues.password);
-	 		if(bcrypt.compareSync(req.body.geslo, uporabnik[0].dataValues.password)){
-	 			req.session.user = req.body.uporabnisko;
-	 			res.redirect('/');
-	 		}
-	 		else {
-	 			res.redirect('login');
-	 		}
+		 	if(uporabnik[0] != null) {
+		 		console.log(req.body.geslo);
+		 		console.log(uporabnik[0].dataValues.password);
+		 		if(bcrypt.compareSync(req.body.geslo, uporabnik[0].dataValues.password)){
+		 			req.session.user = req.body.uporabnisko;
+		 			res.redirect('/');
+		 		}
+		 		else {
+		 			res.redirect('login');
+		 		}
+		 	}
+		 	else {
+		 		res.redirect('login');
+		 	}
 	 	});
 });
+
 
 app.post('/objavi_vprasanje', function (req, res) {
 	res.setHeader('Content-Type', 'application/json');
@@ -198,7 +213,7 @@ app.post('/objavi_vprasanje', function (req, res) {
 						vseckov: 0
 					});
 				});
-				res.redirect('/');
+				res.redirect('/novo');
 	}
 	else {
 		uporabnik.findAll({where: {uporabnikso_ime: req.session.user}}).then(function (uporabnikSeznam) {
@@ -219,7 +234,7 @@ app.post('/objavi_vprasanje', function (req, res) {
 						uporabnikId: uporabnikSeznam[0].dataValues.id
 					});
 				});
-				res.redirect('/');
+				res.redirect('/novo');
 	 	});
 	}
 });
@@ -347,21 +362,21 @@ app.get('/logout', function(req,res) {
 });
 
 app.param('vprId', function(req, res, next, vprId) {
-
+	console.log("found param");
   	vprasanje.findAll({where: {id: vprId}}).then( function(vprasanjeInstanca) {
-    if (vprasanjeInstanca == null) {
-    	console.log('shit');
+    if (vprasanjeInstanca[0] == null) {
+    	console.log('nope');
+    	res.status(404).send("404 Not Found... Wrong page buddy.");
     } else {
     	//console.log(vprasanjeInstanca[0].dataValues);
       req.vprasanje = vprasanjeInstanca[0];
+      next();
     };
-
-    next();
   });
 });
 
-
 app.get('/vprasanje/:vprId', function (req, res) {
+	console.log("found param 2");
 	var upporabnik_username = null; 
 	if (req.session && req.session.user) {
 		upporabnik_username = req.session.user;
@@ -404,6 +419,11 @@ app.get('/vprasanje/:vprId', function (req, res) {
 });
 
 app.use('/',express.static(__dirname + '/')); //__dirname resolves to project folder
+
+
+app.get('*', function(req, res){
+  res.status(404).send("404 Not Found... Wrong page buddy.");
+});
 
 app.listen(3000, function(){
 	console.log('Express started on port 3000 press Ctrl-c to terimnate.');
